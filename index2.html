@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <style>
+        div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    {{msg}}<br>
+    {{count}}
+    <div v-if="isEven">
+        <p>是偶数</p>
+    </div>
+    <div v-if="!isEven">
+        <p>是奇数</p>
+    </div>
+    <br>
+    <button @click="submit()">加数字</button>
+    <button v-on:click="submit1()">减数字</button>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: '#box',
+        data: {
+            msg: 'Hello vue I\'m learning',
+            count: 0,
+            t1: '<p>I like you!</p>'
+        },
+        methods: {
+            submit: function () {
+                this.count ++
+            },
+            submit1: function () {
+                this.count --
+            }
+        },
+        computed: {
+            isEven: function () {
+                return this.count%2 == 0 ? true:false
+            }
+        }
+    })
+</script>
+</html>

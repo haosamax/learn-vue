@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <style>
+        div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    {{msg}}<br>
+    {{msg1}}
+</div>
+</body>
+
+<script>
+    var a = 'sajksjaks'
+    var app = new Vue({
+        el: '#box',
+        data: {
+            msg: 'Hello vue'
+        },
+        watch: {//监听一个变量
+            msg: function (newValue, oldValue) {
+                console.log('oldvalue is :'+oldValue)
+                console.log('newvalue is :'+newValue)
+            }
+        },
+        computed: {//计算多个变量，只有当实例内的变量发生变化时才重新计算
+            msg1: function () {
+                console.log('coming here...')
+                return 'computed value is:'+ this.msg + a
+            }
+        }
+    })
+</script>
+</html>

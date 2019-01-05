@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <style>
+        div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    Hello world!
+    {{msg}}<br>
+    {{count * 3 + 3}}
+    <button v-on:click="submit()">加数字</button>
+    <button @click="submit1()">减数字</button>
+    <a v-bind:href="url">百度</a>
+    <a :href="url">百度</a>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: '#box',
+        data: {
+            msg: 'Hello vue!',
+            count: 0,
+            url: 'http://www.baidu.com',
+        },
+        methods: {
+            submit:  function () {
+                this.count ++
+            },
+            submit1: function () {
+                --this.count
+            }
+        }
+    })
+</script>
+</html>
